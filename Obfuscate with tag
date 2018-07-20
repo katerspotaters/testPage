@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+			"http://www.w3.org/TR/REC-html40/strict.dtd">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Obfuscate/Deobfuscate</title>
+    <style type="text/css">
+        <!-- body {
+            background: white;
+            color: black;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            line-height: 0.85em;
+            border-bottom: 2px solid;
+            margin-bottom: 1em;
+            padding-bottom: .23em;
+        }
+
+        textarea {
+            background: #EEF;
+        }
+
+        -->
+    </style>
+    <script type="text/javascript">
+        function OBX() {
+        	var obj = document.getElementById('deobx');
+        	var text = obj.value;
+        	// var text = decodeURIComponent(text);
+            var base = text.length % 10;
+            var result = [];
+            for (var i = 0; i < text.length; i++) {
+                var shift = base + (i % 10);
+                var charCode = text.charCodeAt(i);
+                result.push(String.fromCharCode(charCode ^ shift));
+            }
+            obj.value = result.join('');
+        }
+        function OBXD() {
+        	var obj = document.getElementById('deobx');
+        	var text = obj.value;
+        	var text = decodeURIComponent(text);
+            var base = text.length % 10;
+            var result = [];
+            for (var i = 0; i < text.length; i++) {
+                var shift = base + (i % 10);
+                var charCode = text.charCodeAt(i);
+                result.push(String.fromCharCode(charCode ^ shift));
+            }
+            obj.value = result.join('');
+        }
+
+
+</head>
+
+<body>
+
+<script src="//c.fqtag.com/tag/implement-r.js?org=XlYNX1WsaLSkGhI9RQ9C&fmt=banner&s=${AUCTION_ID}&rd=${REFERER_URL_ENC}&p=AnthonyTest&a=${TAG_ID}&cmp=${CP_ID}&c1=${SITE_ID}&c2=${CREATIVE_ID}&c3=${USER_ID}&ctu=${CLICK_URL_ENC}&app=${EXT_APP_ID}&lat=${GEO_LAT}&long={GEO_LON}&gid=${DEVICE_AAID}&aid=${DEVICE_APPLE_IDA}&rt=display&sl=1"></script>
+<noscript>
+<img src="https://www.fqtag.com/pixel.cgi?org=XlYNX1WsaLSkGhI9RQ9C&fmt=banner&s=${AUCTION_ID}&rd=${REFERER_URL_ENC}&p=AnthonyTest&a=${TAG_ID}&cmp=${CP_ID}&c1=${SITE_ID}&c2=${CREATIVE_ID}&c3=${USER_ID}&ctu=${CLICK_URL_ENC}&app=${EXT_APP_ID}&lat=${GEO_LAT}&long={GEO_LON}&gid=${DEVICE_AAID}&aid=${DEVICE_APPLE_IDA}&rt=displayImg&sl=1&fq=1" width=​"1" height=​"1" border=​"0"/>
+</noscript>
+
+    <form onsubmit="return false;">
+        <h1>URL Deobfuscator</h1>
+
+        <ul>
+            <li>Input the string following the d= parameter to deobfuscate the request body.</li>
+            <li>Use Deobfuscate for all POST requests submitted via a form</li>
+            <li>Use Deobfuscate and Decode for all GET requests submitted via a the URL string</li>
+
+        </ul>
+
+        <textarea cols="100" rows="20" id="deobx"></textarea>
+        <div>
+            <input type="button" onclick="OBX()" value="Deobfuscate (POST)">
+            <input type="button" onclick="OBXD()" value="Deobfuscate and Decode (GET)">
+        </div>
+
+
+
+    </form>
+
+</body>
+
+</html>
